@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Link from 'next/link'
 import gcbDesktopImg from '../../public/gcb-desktop.svg'
-import touroDesktopImg from '../../public/touro-desktop.svg'
+import { LoginForm } from '../components/LoginForm'
+import MobileLoginForm from '../components/MobileLoginForm'
+import useMedia from '../hooks/useMedia'
 import * as S from '../styles/styles'
 
 function Home() {
+  const mobile = useMedia('(max-width: 900px)')
   return (
     <>
       <Head>
@@ -15,41 +17,29 @@ function Home() {
       </Head>
 
       <S.Container>
-        <S.Content>
-          <h1>
-            Até onde conseguimos
-            <br />
-            chegar?
-          </h1>
+        {!mobile && (
+          <S.Content>
+            <h1>
+              Até onde conseguimos
+              <br />
+              chegar?
+            </h1>
 
-          <p>
-            A <strong>curiosidade</strong> de descobrir
-            <br />
-            essa resposta é o que <strong>nos</strong>
-            <br />
-            <strong>move</strong> no dia-a-dia
-          </p>
+            <p>
+              A <strong>curiosidade</strong> de descobrir
+              <br />
+              essa resposta é o que <strong>nos</strong>
+              <br />
+              <strong>move</strong> no dia-a-dia
+            </p>
 
-          <div>
-            <Image src={gcbDesktopImg} alt='GCB Logo' />
-          </div>
-        </S.Content>
+            <div>
+              <Image src={gcbDesktopImg} alt='GCB Logo' />
+            </div>
+          </S.Content>
+        )}
 
-        <S.LoginContainer>
-          <form>
-            <label htmlFor='email'>Email</label>
-            <input type='email' id='email' placeholder='Email' />
-            <label htmlFor='password'>Senha</label>
-            <input type='email' id='email' placeholder='Senha' />
-            <span>
-              Não tem cadastro?
-              <Link href='/'>
-                <a>Cadastre-se agora!</a>
-              </Link>
-            </span>
-            <button type='submit'>Entrar</button>
-          </form>
-        </S.LoginContainer>
+        {mobile ? <MobileLoginForm /> : <LoginForm />}
       </S.Container>
     </>
   )

@@ -11,11 +11,7 @@ export const Container = styled.main`
   }
 
   @media (max-width: 1000px) {
-    grid-template-columns: 1.5fr 1.25fr;
-  }
-
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1.5fr 1fr;
   }
 `
 
@@ -58,3 +54,5 @@ export const Content = styled.div`
     }
   }
 `
+
+
