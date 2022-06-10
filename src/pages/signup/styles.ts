@@ -11,7 +11,11 @@ export const Container = styled.main`
   }
 
   @media (max-width: 1000px) {
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1.5fr 1.25fr;
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
   }
 `
 
@@ -26,6 +30,10 @@ export const Content = styled.div`
 
   @media (max-width: 1250px) {
     padding: 6rem 3rem;
+  }
+
+  @media (max-width: 900px) {
+    display: none;
   }
 
   h1 {

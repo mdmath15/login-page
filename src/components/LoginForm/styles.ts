@@ -5,10 +5,20 @@ export const LoginContainer = styled.div`
   background-image: url('background.png');
   background-repeat: no-repeat;
   background-position: right center;
+  background-size: 50vh;
   display: flex;
   align-items: center;
 
   @media (max-width: 1250px) {
+    background-size: 40vh;
+  }
+
+  @media (max-width: 900px) {
+    background-position: right center;
+    justify-content: center;
+  }
+
+  @media (max-width: 490px) {
     background-size: 95%;
   }
 
@@ -33,12 +43,34 @@ export const LoginContainer = styled.div`
       height: 480px;
     }
 
+    @media (max-width: 900px) {
+      gap: 1rem;
+      max-width: 460px;
+      height: auto;
+      margin: 0 1rem;
+      background: none;
+
+      div {
+        align-self: center;
+      }
+    }
+
+    @media (max-width: 490px) {
+      padding: 5rem 2rem 2rem;
+    }
+
     label {
       font-size: 1.8rem;
       color: var(--bege-escuro);
 
       @media (max-width: 1000px) {
         font-size: 1.5rem;
+      }
+
+      @media (max-width: 900px) {
+        margin: 0 auto;
+        margin-top: 2rem;
+        color: var(--bege-claro);
       }
     }
 
@@ -47,6 +79,12 @@ export const LoginContainer = styled.div`
       border-bottom: 1.25px solid var(--brown);
       padding: 0.5rem 0;
       outline: none;
+
+      @media (max-width: 900px) {
+        border-bottom: 1.25px solid #fff;
+        background: none;
+        color: #fff;
+      }
 
       & + label {
         margin-top: 2rem;
@@ -64,9 +102,17 @@ export const LoginContainer = styled.div`
       font-size: 0.85rem;
       color: var(--brown);
 
+      @media (max-width: 900px) {
+        color: #fff;
+      }
+
       a {
         text-decoration: underline;
         color: var(--brown);
+
+        @media (max-width: 900px) {
+          color: #fff;
+        }
       }
     }
 
@@ -81,6 +127,13 @@ export const LoginContainer = styled.div`
       border-radius: 0.5rem;
       height: 3rem;
       transition: filter 0.2s;
+
+      @media (max-width: 900px) {
+        color: var(--bege-escuro);
+        background: #fff;
+        margin: 0 auto;
+        margin-top: 2rem;
+      }
 
       &:hover {
         filter: brightness(0.8);

@@ -32,6 +32,10 @@ export const Content = styled.div`
     padding: 6rem 3rem;
   }
 
+  @media (max-width: 900px) {
+    display: none;
+  }
+
   h1 {
     font-size: 2.5rem;
 

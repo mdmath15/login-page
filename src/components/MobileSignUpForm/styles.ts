@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const LoginContainer = styled.div`
+export const RegisterContainer = styled.div`
   background: var(--brown);
   background-image: url('background.png');
   background-repeat: no-repeat;
@@ -9,7 +9,7 @@ export const LoginContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 490px) { 
+  @media (max-width: 490px) {
     background-size: 95%;
   }
 
@@ -31,14 +31,20 @@ export const LoginContainer = styled.div`
     }
 
     div {
-      align-self: center;
+      align-self: end;
     }
 
     label {
       font-size: 1.8rem;
-      color: var(--bege-escuro);
+      color: var(--bege-claro);
       margin: 0 auto;
       margin-top: 2rem;
+
+      &:last-child {
+        color: #fff;
+        font-size: 1rem;
+        padding: 1rem;
+      }
 
       @media (max-width: 1000px) {
         font-size: 1.5rem;
@@ -59,18 +65,6 @@ export const LoginContainer = styled.div`
       &::placeholder {
         font-size: 1.2rem;
         font-weight: 500;
-      }
-    }
-
-    span {
-      display: block;
-      padding: 0.5rem 0;
-      font-size: 0.85rem;
-      color: #fff;
-
-      a {
-        text-decoration: underline;
-        color: #fff;
       }
     }
 

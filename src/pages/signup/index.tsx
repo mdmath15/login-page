@@ -1,10 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import gcbDesktopImg from '../../../public/gcb-desktop.svg'
+import MobileSignUpForm from '../../components/MobileSignUpForm'
 import SignUpForm from '../../components/SignUpForm'
+import useMedia from '../../hooks/useMedia'
 import * as S from './styles'
 
 export default function SingUp() {
+  const mobile = useMedia('(max-width: 900px)')
   return (
     <>
       <Head>
