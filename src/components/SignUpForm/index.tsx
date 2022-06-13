@@ -6,7 +6,7 @@ import useMedia from '../../hooks/useMedia'
 import { passwordValidator } from '../../utils/password-validator'
 import * as S from './styles'
 
-export default function SignUpForm() {
+function SignUpForm() {
   const mobile = useMedia('(max-width: 900px)')
   const name = useRef<HTMLInputElement | null>(null)
   const email = useRef<HTMLInputElement | null>(null)
@@ -18,7 +18,7 @@ export default function SignUpForm() {
 
   const signUp = (e: FormEvent) => {
     e.preventDefault()
-    
+
     const user = {
       name: name.current?.value,
       email: email.current?.value,
@@ -69,3 +69,5 @@ export default function SignUpForm() {
     </S.Container>
   )
 }
+
+export default SignUpForm

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import gcbDesktopImg from '../../public/gcb-desktop.svg'
-import { LoginForm } from '../components/LoginForm'
+import LoginForm from '../components/LoginForm'
 import * as S from '../styles/styles'
 
 function Home() {
