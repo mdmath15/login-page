@@ -1,19 +1,16 @@
 import styled from 'styled-components'
 
-export const RegisterContainer = styled.div`
+export const Container = styled.div`
   background: var(--brown);
   background-image: url('background.png');
   background-repeat: no-repeat;
   background-position: right center;
+  background-size: 50vh;
   display: flex;
   align-items: center;
 
-  @media (max-width: 1150px) {
-    background-size: 95%;
-  }
-
   @media (max-width: 900px) {
-    background-position: right;
+    background-position: right center;
     justify-content: center;
   }
 
@@ -21,21 +18,18 @@ export const RegisterContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    gap: 0.5rem;
-    padding: 1rem 4rem 4rem;
+    padding: 2rem 4rem;
     border-radius: 0.5rem;
     width: 100%;
+    min-height: 464px;
     max-width: 460px;
     margin-left: -124px;
-    height: 520px;
     background: #fff;
 
     @media (max-width: 1150px) {
       max-width: 420px;
       margin-left: -80px;
-      padding: 1rem 2rem 2rem;
-      height: 480px;
+      padding: 1rem 3rem;
     }
 
     @media (max-width: 900px) {
@@ -46,10 +40,6 @@ export const RegisterContainer = styled.div`
       div {
         align-self: center;
       }
-    }
-
-    @media (max-width: 490px) {
-      padding: 5rem 2rem 2rem;
     }
 
     label {
@@ -82,6 +72,7 @@ export const RegisterContainer = styled.div`
       @media (max-width: 900px) {
         border-bottom: 1.25px solid #fff;
         background: none;
+        color: #fff;
       }
 
       & + label {
@@ -95,9 +86,19 @@ export const RegisterContainer = styled.div`
     }
 
     div {
+      margin-top: -0.5rem;
+
+      @media (max-width: 900px) {
+        margin-top: 0rem;
+      }
+
       label {
         font-size: 1rem;
-        padding: 0 0.5rem;
+        margin-left: 0.25rem;
+
+        @media (max-width: 900px) {
+          margin-left: 0;
+        }
       }
     }
 
@@ -111,6 +112,7 @@ export const RegisterContainer = styled.div`
       border-radius: 0.5rem;
       height: 3rem;
       transition: filter 0.2s;
+      margin-top: 1rem;
 
       @media (max-width: 900px) {
         margin: 0 auto;
@@ -123,5 +125,15 @@ export const RegisterContainer = styled.div`
         filter: brightness(0.8);
       }
     }
+  }
+`
+
+export const Errors = styled.div`
+  margin: 0.5rem 0;
+
+  span {
+    display: block;
+    font-size: 0.85rem;
+    color: red;
   }
 `

@@ -1,13 +1,21 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import gcbDesktopImg from '../../public/gcb-desktop.svg'
 import { LoginForm } from '../components/LoginForm'
-import MobileLoginForm from '../components/MobileLoginForm'
-import useMedia from '../hooks/useMedia'
 import * as S from '../styles/styles'
 
 function Home() {
-  const mobile = useMedia('(max-width: 900px)')
+  const router = useRouter()
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      router.push('/welcome')
+    }
+  }, [router])
+
   return (
     <>
       <Head>

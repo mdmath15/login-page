@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useRef } from 'react'
+import { FormEvent, useRef } from 'react'
 import gcbMobileImg from '../../../public/gcb-mobile.svg'
 import useMedia from '../../hooks/useMedia'
 import * as S from './styles'
@@ -13,7 +13,7 @@ export function LoginForm() {
 
   const router = useRouter()
 
-  const login = (e: any) => {
+  const login = (e: FormEvent) => {
     e.preventDefault()
     const user = JSON.parse(localStorage.getItem('user') || '{}')
 
@@ -36,7 +36,7 @@ export function LoginForm() {
   }
 
   return (
-    <S.LoginContainer>
+    <S.Container>
       <form onSubmit={login}>
         {mobile && (
           <div>
@@ -61,6 +61,6 @@ export function LoginForm() {
         </span>
         <button type='submit'>Entrar</button>
       </form>
-    </S.LoginContainer>
+    </S.Container>
   )
 }

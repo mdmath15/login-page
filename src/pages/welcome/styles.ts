@@ -1,6 +1,69 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.main`
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+
+  @media (max-width: 1250px) {
+    grid-template-columns: 2fr 1.5fr;
+  }
+
+  @media (max-width: 1000px) {
+    grid-template-columns: 1.5fr 1.25fr;
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+`
+
+export const Content = styled.div`
+  color: var(--brown);
+  height: 100%;
+  padding: 6rem 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+
+  @media (max-width: 1250px) {
+    padding: 6rem 3rem;
+  }
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+
+    @media (max-width: 1000px) {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    font-size: 2rem;
+
+    @media (max-width: 1000px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  div {
+    max-width: 320px;
+    position: relative;
+    top: 64px;
+
+    @media (max-width: 1000px) {
+      max-width: 280px;
+    }
+  }
+`
+
+export const ContainerWelcome = styled.section`
   background: var(--brown);
   background-image: url('background.png');
   background-repeat: no-repeat;
@@ -32,75 +95,29 @@ export const Container = styled.div`
     }
 
     @media (max-width: 900px) {
-      gap: 1rem;
       max-width: 460px;
-      height: auto;
-      margin: 0 1rem;
+      gap: 4rem;
+      margin: 0 auto;
       background: none;
-
-      div {
-        align-self: center;
-      }
+      height: auto;
+      justify-content: center;
     }
 
-    @media (max-width: 490px) {
-      padding: 5rem 2rem 2rem;
-    }
-
-    label {
-      font-size: 1.8rem;
+    h1 {
+      font-size: 2.5rem;
       color: var(--bege-escuro);
 
-      @media (max-width: 1000px) {
-        font-size: 1.5rem;
-      }
-
       @media (max-width: 900px) {
-        margin: 0 auto;
-        margin-top: 2rem;
         color: var(--bege-claro);
       }
     }
 
-    input {
-      border: none;
-      border-bottom: 1.25px solid var(--brown);
-      padding: 0.5rem 0;
-      outline: none;
-
-      @media (max-width: 900px) {
-        border-bottom: 1.25px solid #fff;
-        background: none;
-        color: #fff;
-      }
-
-      & + label {
-        margin-top: 2rem;
-      }
-
-      &::placeholder {
-        font-size: 1.2rem;
-        font-weight: 500;
-      }
-    }
-
-    span {
-      display: block;
-      padding: 0.5rem 0;
+    p {
       font-size: 1rem;
       color: var(--brown);
 
       @media (max-width: 900px) {
         color: #fff;
-      }
-
-      a {
-        text-decoration: underline;
-        color: var(--brown);
-
-        @media (max-width: 900px) {
-          color: #fff;
-        }
       }
     }
 
@@ -116,6 +133,11 @@ export const Container = styled.div`
       height: 3rem;
       transition: filter 0.2s;
 
+      a {
+        color: var(--bege-claro);
+        text-decoration: none;
+      }
+
       @media (max-width: 900px) {
         color: var(--bege-escuro);
         background: #fff;
@@ -128,4 +150,9 @@ export const Container = styled.div`
       }
     }
   }
+`
+
+export const Logo = styled.div`
+  align-self: center;
+  
 `
