@@ -86,12 +86,6 @@ export const Container = styled.div`
     }
 
     div {
-      margin-top: -0.5rem;
-
-      @media (max-width: 900px) {
-        margin-top: 0rem;
-      }
-
       label {
         font-size: 1rem;
         margin-left: 0.25rem;

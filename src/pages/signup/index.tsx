@@ -4,7 +4,7 @@ import gcbDesktopImg from '../../../public/gcb-desktop.svg'
 import SignUpForm from '../../components/SignUpForm'
 import * as S from './styles'
 
-export default function SingUp() {
+function SingUp() {
   return (
     <>
       <Head>
@@ -39,3 +39,5 @@ export default function SingUp() {
     </>
   )
 }
+
+export default SingUp

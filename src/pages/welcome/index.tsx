@@ -11,7 +11,7 @@ interface User {
   email: string
 }
 
-export default function Welcome() {
+function Welcome() {
   const mobile = useMedia('(max-width: 900px)')
   const router = useRouter()
 
@@ -73,3 +73,5 @@ export default function Welcome() {
     </S.Container>
   )
 }
+
+export default Welcome
