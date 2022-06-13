@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { FormEvent, FormEventHandler, useRef, useState } from 'react'
+import { FormEvent, useRef, useState } from 'react'
 import gcbMobileImg from '../../../public/gcb-mobile.svg'
 import useMedia from '../../hooks/useMedia'
 import { passwordValidator } from '../../utils/password-validator'
