@@ -44,7 +44,6 @@ function Home() {
             <Image src={gcbDesktopImg} alt='GCB Logo' />
           </div>
         </S.Content>
-
         <LoginForm />
       </S.Container>
     </>

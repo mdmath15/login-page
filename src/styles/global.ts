@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
     :root {
         --bege: #FFEBD6;
         --bege-escuro: #8B6B4A;
@@ -58,3 +58,5 @@ export const GlobalStyle = createGlobalStyle`
         opacity: 0.6;
     }
 `
+
+export default GlobalStyle
