@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import useMedia from '../../hooks/useMedia'
 import gcbMobileImg from '../../../public/gcb-mobile.svg'
 import gcbDesktopImg from '../../../public/gcb-desktop.svg'
-import * as S from './styles'
+import * as S from '../../components/WelcomePage/styles'
 import { useRouter } from 'next/router'
 
 interface User {

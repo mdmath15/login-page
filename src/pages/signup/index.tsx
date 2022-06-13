@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import gcbDesktopImg from '../../../public/gcb-desktop.svg'
 import SignUpForm from '../../components/SignUpForm'
-import * as S from './styles'
+import * as S from '../../components/SignUpPage/styles'
 
 function SingUp() {
   return (

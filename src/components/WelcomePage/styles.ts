@@ -154,5 +154,4 @@ export const ContainerWelcome = styled.section`
 
 export const Logo = styled.div`
   align-self: center;
-  
 `
