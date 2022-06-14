@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import { ToastContainer } from 'react-toastify'
 import { Content } from '../components/Content'
 import {LoginForm} from '../components/LoginForm'
 import * as S from '../styles/styles'
@@ -22,7 +23,6 @@ function Home() {
         <meta name='description' content='GCB Investimentos - Login' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-
       <S.Container>
         <Content/>
         <LoginForm />
