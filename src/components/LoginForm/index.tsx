@@ -25,25 +25,26 @@ export function LoginForm() {
     setTimeout(() => setLoading(false), 2000);
 
     const user = JSON.parse(localStorage.getItem("user") || "{}");
-    if (!loading) {
-      if (!user.email || !user.password) {
-        return toast.error("Nenhum usuário cadastrado");
-      }
+    if (!user.email || !user.password) {
+      setTimeout(() => toast.error("Nenhum usuário cadastrado"), 2000);
+    }
 
-      if (user.email !== emailRef.current?.value) {
-        return toast.error("Email incorreto");
-      }
+    if (user.email !== emailRef.current?.value) {
+      setTimeout(() => toast.error("Email incorreto"), 2000);
+    }
 
-      if (user.password !== passwordRef.current?.value) {
-        return toast.error("Senha incorreta");
-      }
+    if (user.password !== passwordRef.current?.value) {
+      setTimeout(() => toast.error("Senha incorreta"), 2000);
+    }
 
-      if (user.email === emailRef.current?.value && user.password === passwordRef.current?.value) {
-      toast.success("Login realizado com sucesso");
+    if (
+      user.email === emailRef.current?.value &&
+      user.password === passwordRef.current?.value
+    ) {
+      setTimeout(() => toast.success("Login realizado com sucesso"), 1000);
       localStorage.setItem("token", "logado");
-      router.push("/welcome");
-      }
-      
+
+      setTimeout(() => router.push("/welcome"), 2000);
     }
   };
 
@@ -78,7 +79,7 @@ export function LoginForm() {
           </Link>
         </span>
         <button type="submit">
-          {loading ? <S.Loading size={32}/> : "Entrar"}
+          {loading ? <S.Loading size={32} /> : "Entrar"}
         </button>
       </form>
     </S.Container>
