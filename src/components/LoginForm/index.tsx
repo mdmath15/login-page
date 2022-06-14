@@ -6,7 +6,7 @@ import gcbMobileImg from '../../../public/gcb-mobile.svg'
 import useMedia from '../../hooks/useMedia'
 import * as S from './styles'
 
-function LoginForm() {
+export function LoginForm() {
   const mobile = useMedia('(max-width: 900px)')
   const emailRef = useRef<HTMLInputElement | null>(null)
   const passwordRef = useRef<HTMLInputElement | null>(null)
@@ -65,4 +65,3 @@ function LoginForm() {
   )
 }
 
-export default LoginForm

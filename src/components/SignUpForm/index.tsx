@@ -6,7 +6,7 @@ import useMedia from '../../hooks/useMedia'
 import { passwordValidator } from '../../utils/password-validator'
 import * as S from './styles'
 
-function SignUpForm() {
+export function SignUpForm() {
   const mobile = useMedia('(max-width: 900px)')
   const name = useRef<HTMLInputElement | null>(null)
   const email = useRef<HTMLInputElement | null>(null)
@@ -70,4 +70,3 @@ function SignUpForm() {
   )
 }
 
-export default SignUpForm
