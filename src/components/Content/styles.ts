@@ -34,12 +34,11 @@ export const Container = styled.div`
   }
 
   div {
-    max-width: 320px;
     position: relative;
     top: 64px;
-
+  
     @media (max-width: 1000px) {
-      max-width: 280px;
+      max-width: 340px;
     }
   }
 `

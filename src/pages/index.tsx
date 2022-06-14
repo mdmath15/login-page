@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { ToastContainer } from 'react-toastify'
 import { Content } from '../components/Content'
 import {LoginForm} from '../components/LoginForm'
 import * as S from '../styles/styles'

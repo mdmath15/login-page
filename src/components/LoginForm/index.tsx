@@ -3,9 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { FormEvent, useRef, useState } from "react";
 import { toast } from "react-toastify";
-import { Spinner } from "phosphor-react";
 import "react-toastify/dist/ReactToastify.css";
-import { setTimeout } from "timers";
 import gcbMobileImg from "../../../public/gcb-mobile.svg";
 import useMedia from "../../hooks/useMedia";
 import * as S from "./styles";
@@ -53,7 +51,7 @@ export function LoginForm() {
       <form onSubmit={login}>
         {mobile && (
           <div>
-            <Image src={gcbMobileImg} alt="GCB Logo" />
+            <Image src='/gcb-mobile.svg' alt="GCB Logo" width={420} height={120}/>
           </div>
         )}
         <label htmlFor="email">Email</label>
