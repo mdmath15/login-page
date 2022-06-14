@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
      <ToastContainer 
-      autoClose={1000}/>
+      autoClose={2000}/>
       <GlobalStyle/>
       <Component {...pageProps} />
     </>

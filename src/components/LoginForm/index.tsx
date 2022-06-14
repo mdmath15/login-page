@@ -11,7 +11,7 @@ import useMedia from "../../hooks/useMedia";
 import * as S from "./styles";
 
 export function LoginForm() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<null | boolean>();
   const mobile = useMedia("(max-width: 900px)");
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
@@ -20,31 +20,32 @@ export function LoginForm() {
 
   const login = (e: FormEvent) => {
     e.preventDefault();
-    
+
     setLoading(true);
-    setTimeout(() => setLoading(false), 5000);
+    setTimeout(() => setLoading(false), 2000);
 
     const user = JSON.parse(localStorage.getItem("user") || "{}");
-
     if (!loading) {
       if (!user.email || !user.password) {
         return toast.error("Nenhum usuário cadastrado");
       }
-  
+
       if (user.email !== emailRef.current?.value) {
         return toast.error("Email incorreto");
       }
-  
-      if (loading && user.password !== passwordRef.current?.value) {
+
+      if (user.password !== passwordRef.current?.value) {
         return toast.error("Senha incorreta");
       }
-  
+
+      if (user.email === emailRef.current?.value && user.password === passwordRef.current?.value) {
       toast.success("Login realizado com sucesso");
       localStorage.setItem("token", "logado");
       router.push("/welcome");
       }
+      
     }
-  }
+  };
 
   return (
     <S.Container>
@@ -77,7 +78,7 @@ export function LoginForm() {
           </Link>
         </span>
         <button type="submit">
-          {loading ? <Spinner size={32} /> : "Entrar"}
+          {loading ? <S.Loading size={32}/> : "Entrar"}
         </button>
       </form>
     </S.Container>
