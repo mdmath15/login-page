@@ -41,7 +41,7 @@ export function LoginForm() {
       user.email === emailRef.current?.value &&
       user.password === passwordRef.current?.value
     ) {
-      tokenGenerator(user.id)
+      localStorage.setItem("token", tokenGenerator(user.id))
       setTimeout(() => toast.success("Login realizado com sucesso"), 1000);
       setTimeout(() => router.push("/welcome"), 2000);
     }

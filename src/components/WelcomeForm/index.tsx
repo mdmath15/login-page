@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import useMedia from '../../hooks/useMedia'
+import { Button } from '../Button'
 import * as S from './styles'
 
 interface WelcomeFormProps {
@@ -25,11 +26,11 @@ export function WelcomeForm( {user} : WelcomeFormProps ) {
 
           <p>Por favor confirme o email que enviamos para {user.email}</p>
 
-          <button type='submit'>
+          <Button type='submit'>
             <a target='blank' href={`mailto:${user.email}`}>
               Abrir email
             </a>
-          </button>
+          </Button>
         </form>
       </S.ContainerWelcome>
     )

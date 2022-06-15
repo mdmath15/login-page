@@ -1,4 +1,3 @@
-import { JsonWebTokenError, JwtPayload } from "jsonwebtoken";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -6,7 +5,6 @@ import { Content } from "../components/Content";
 import { LoginForm } from "../components/LoginForm";
 import * as S from "../styles/styles";
 import { tokenVerifier } from "../utils/authenticator";
-
 
 function Home() {
   const router = useRouter();
@@ -16,9 +14,9 @@ function Home() {
     const token = localStorage.getItem("token");
 
     if (user && token) {
-      const isValid = tokenVerifier(token) as {id: string};
-
-      if (isValid.id === user.id) {
+      const isValid = tokenVerifier(token);
+      
+      if (isValid?.id === user.id) {
         router.push("/welcome");
       }
     }

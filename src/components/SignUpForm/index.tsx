@@ -5,6 +5,7 @@ import useMedia from '../../hooks/useMedia'
 import { tokenGenerator } from '../../utils/authenticator'
 import { IdGenerator } from '../../utils/id-generator'
 import { passwordValidator } from '../../utils/password-validator'
+import { Button } from '../Button'
 import * as S from './styles'
 
 export function SignUpForm() {
@@ -69,7 +70,7 @@ export function SignUpForm() {
           <input ref={terms} type='checkbox' id='terms' name='terms' required />
           <label htmlFor='terms'>Eu li e aceito os Termos e Condições</label>
         </div>
-        <button type='submit'>Entrar</button>
+        <Button type='submit'>Entrar</Button>
       </form>
     </S.Container>
   )

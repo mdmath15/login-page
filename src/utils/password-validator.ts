@@ -16,23 +16,23 @@ export const passwordValidator = (password: string | undefined): Response => {
   const validations = [
     {
       validate: (password: string) => password.length < MIN_LENGTH,
-      message: 'Password is too short'
+      message: 'A senha precisa ter mais de 8 caracteres'
     },
     {
       validate: (password: string) => lowerCaseValidator(password),
-      message: 'Password must contain at least one lower case letter'
+      message: 'A senha precis ter pelo menos uma letra minúscula'
     },
     {
       validate: (password: string) => upperCaseValidator(password),
-      message: 'Password must contain at least one upper case letter'
+      message: 'A senha precisa ter pelo menos uma letra maiúscula'
     },
     {
       validate: (password: string) => specialCharactersValidator(password),
-      message: 'Password must contain at least two special characters'
+      message: 'A senha precisa ter pelo menos 2 caracteres especiais'
     },
     {
       validate: (password: string) => sequenceValidator(password),
-      message: 'Password must not contain sequence'
+      message: 'A senha não pode ter uma sequencia de numeros ou letras'
     }
   ]
 
