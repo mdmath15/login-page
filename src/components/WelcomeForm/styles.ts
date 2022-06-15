@@ -8,6 +8,7 @@ export const ContainerWelcome = styled.section`
   background-size: 50vh;
   display: flex;
   align-items: center;
+  width: 100%;
 
   @media (max-width: 900px) {
     background-position: right center;

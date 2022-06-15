@@ -15,16 +15,16 @@ function Welcome() {
   const router = useRouter()
   
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user')!)
+    const user = JSON.parse(localStorage.getItem('user') || '{}')
     setUser(user)
   }, [])
 
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (!token) {
-      router.push('/')
-    }
-  }, [router])
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token')!
+  //   if (!token) {
+  //     router.push('/')
+  //   }
+  // }, [router])
 
   return (
     <Container>

@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { FormEvent, useRef, useState } from 'react'
-import gcbMobileImg from '../../../public/gcb-mobile.svg'
 import useMedia from '../../hooks/useMedia'
 import { passwordValidator } from '../../utils/password-validator'
 import * as S from './styles'
@@ -41,7 +40,7 @@ export function SignUpForm() {
       <form onSubmit={signUp}>
         {mobile && (
           <div>
-            <Image src={gcbMobileImg} alt='GCB Logo' />
+            <Image src='/gcb-mobile.svg' alt='GCB Logo' width={420} height={120} />
           </div>
         )}
         <label htmlFor='name'>Seu Nome</label>

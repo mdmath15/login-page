@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import useMedia from '../../hooks/useMedia'
-import gcbMobileImg from '../../../public/gcb-mobile.svg'
 import * as S from './styles'
 
 interface WelcomeFormProps {
@@ -17,7 +16,7 @@ export function WelcomeForm( {user} : WelcomeFormProps ) {
         <form>
           {mobile && (
             <S.Logo>
-              <Image src={gcbMobileImg} alt='GCB Logo' />
+              <Image src='/gcb-mobile.svg' alt='GCB Logo' width={420} height={120} />
             </S.Logo>
           )}
           <h1>Olá, {user.name}</h1>
