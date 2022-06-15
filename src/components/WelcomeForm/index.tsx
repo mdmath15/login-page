@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import useMedia from '../../hooks/useMedia'
+import { AppColors } from '../../styles/global'
 import { Button } from '../Button'
 import * as S from './styles'
 
@@ -26,7 +27,7 @@ export function WelcomeForm( {user} : WelcomeFormProps ) {
 
           <p>Por favor confirme o email que enviamos para {user.email}</p>
 
-          <Button type='submit'>
+          <Button type='submit' bgColor={AppColors.brown} color={AppColors.caramelo}>
             <a target='blank' href={`mailto:${user.email}`}>
               Abrir email
             </a>

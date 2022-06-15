@@ -1,3 +1,4 @@
+import App from "next/app";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -5,7 +6,8 @@ import { FormEvent, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useMedia from "../../hooks/useMedia";
-import { tokenGenerator, tokenVerifier } from "../../utils/authenticator";
+import { AppColors } from "../../styles/global";
+import { tokenGenerator } from "../../utils/authenticator";
 import { Button } from "../Button";
 import * as S from "./styles";
 
@@ -82,7 +84,7 @@ export function LoginForm() {
             <a>Cadastre-se agora!</a>
           </Link>
         </span>
-        <Button type="submit">
+        <Button type="submit" bgColor={AppColors.brown} color={AppColors.begeEscuro}>
           {loading ? <S.Loading size={32} /> : "Entrar"}
         </Button>
       </form>

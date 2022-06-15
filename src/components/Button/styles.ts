@@ -1,25 +1,32 @@
 import styled from "styled-components";
 
-export const Container = styled.button`
+export interface ButtonProps {
+  bgColor?: string
+  color?: string
+}
+
+export const Container = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   align-self: flex-start;
   font-size: 1rem;
-  color: var(--bege-claro);
-  background: var(--brown);
+  color: ${props => props.color};
+  background: ${props => props.bgColor};
   border: 0;
   padding: 0 4rem;
-  margin-top: 2rem;
   border-radius: 0.5rem;
   height: 3rem;
   transition: filter 0.2s;
 
+  a {
+    color: inherit;
+  }
+
   @media (max-width: 900px) {
-    color: var(--bege-escuro);
+    color: ${props => props.color};
     background: #fff;
     margin: 0 auto;
-    margin-top: 2rem;
   }
 
   &:hover {

@@ -58,35 +58,6 @@ export const ContainerWelcome = styled.section`
         color: #fff;
       }
     }
-
-    button {
-      align-self: flex-start;
-      font-size: 1rem;
-      color: var(--bege-claro);
-      background: var(--brown);
-      border: 0;
-      padding: 0 4rem;
-      margin-top: 2rem;
-      border-radius: 0.5rem;
-      height: 3rem;
-      transition: filter 0.2s;
-
-      a {
-        color: var(--bege-claro);
-        text-decoration: none;
-      }
-
-      @media (max-width: 900px) {
-        color: var(--bege-escuro);
-        background: #fff;
-        margin: 0 auto;
-        margin-top: 2rem;
-      }
-
-      &:hover {
-        filter: brightness(0.8);
-      }
-    }
   }
 `
 

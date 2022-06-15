@@ -1,12 +1,19 @@
 import { createGlobalStyle } from 'styled-components'
 
+export const AppColors = {
+  bege: '#FFEBD6',
+  caramelo: '#8B6B4A',
+  begeEscuro: '#F5CA9C',
+  brown: '#423B32',
+  white: '#fff'
+}
+
 const GlobalStyle = createGlobalStyle`
     :root {
         --bege: #FFEBD6;
         --bege-escuro: #8B6B4A;
         --bege-claro: #F5CA9C;
         --brown: #423B32;
-
     }
     
     * {

@@ -11,20 +11,13 @@ interface User {
 
 function Welcome() {
   const [user, setUser] = useState<User>({} as User)
-  
   const router = useRouter()
   
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user') || '{}')
     setUser(user)
-  }, [])
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token')!
-  //   if (!token) {
-  //     router.push('/')
-  //   }
-  // }, [router])
+  }, [router])
 
   return (
     <Container>
