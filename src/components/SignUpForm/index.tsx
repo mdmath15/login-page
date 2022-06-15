@@ -2,6 +2,8 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { FormEvent, useRef, useState } from 'react'
 import useMedia from '../../hooks/useMedia'
+import { tokenGenerator } from '../../utils/authenticator'
+import { IdGenerator } from '../../utils/id-generator'
 import { passwordValidator } from '../../utils/password-validator'
 import * as S from './styles'
 
@@ -19,6 +21,7 @@ export function SignUpForm() {
     e.preventDefault()
 
     const user = {
+      id: IdGenerator(),
       name: name.current?.value,
       email: email.current?.value,
       password: password.current?.value
@@ -31,7 +34,10 @@ export function SignUpForm() {
       return
     }
 
+    const token = tokenGenerator(user.id)
+
     localStorage.setItem('user', JSON.stringify(user))
+    localStorage.setItem('token', token)
     router.push('/')
   }
 

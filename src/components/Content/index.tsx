@@ -1,6 +1,5 @@
 import Image from "next/image";
 import * as S from "./styles";
-import gcbLogoDesktop from "../../public/images/gcb-desktop.svg";
 
 export function Content() {
     return (
