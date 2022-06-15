@@ -5,7 +5,7 @@ import { FormEvent, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useMedia from "../../hooks/useMedia";
-import { tokenVerifier } from "../../utils/authenticator";
+import { tokenGenerator, tokenVerifier } from "../../utils/authenticator";
 import { Button } from "../Button";
 import * as S from "./styles";
 
@@ -24,7 +24,6 @@ export function LoginForm() {
     setTimeout(() => setLoading(false), 2000);
 
     const user = JSON.parse(localStorage.getItem("user") || "{}");
-    const token = localStorage.getItem("token");
 
     if (!user.email || !user.password) {
       setTimeout(() => toast.error("Nenhum usuário cadastrado"), 2000);
@@ -42,17 +41,9 @@ export function LoginForm() {
       user.email === emailRef.current?.value &&
       user.password === passwordRef.current?.value
     ) {
-
-      if (!token) {
-        return setTimeout(() => toast.error("Token inválido"), 2000);
-      }
-
-      const isValid = tokenVerifier(token) as { id: string }
-
-      if ( isValid.id === user.id) {
-        setTimeout(() => toast.success("Login realizado com sucesso"), 1000);
-        setTimeout(() => router.push("/welcome"), 2000);
-      }
+      tokenGenerator(user.id)
+      setTimeout(() => toast.success("Login realizado com sucesso"), 1000);
+      setTimeout(() => router.push("/welcome"), 2000);
     }
   };
 
