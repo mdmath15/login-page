@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { Container } from '../../styles/styles'
 import { Content } from '../../components/Content'
 import { WelcomeForm } from '../../components/WelcomeForm'
+import Layout from '../../components/Layout'
 
 interface User {
   name: string
@@ -20,10 +20,10 @@ function Welcome() {
   }, [router])
 
   return (
-    <Container>
+    <Layout title='GCB - Bem-vindo' description='Página de bem vindo'>
       <Content/>
       <WelcomeForm user={user}/>
-    </Container>
+    </Layout>
   )
 }
 

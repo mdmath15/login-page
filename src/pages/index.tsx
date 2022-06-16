@@ -1,40 +1,33 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { Content } from "../components/Content";
-import { LoginForm } from "../components/LoginForm";
-import * as S from "../styles/styles";
-import { tokenVerifier } from "../utils/authenticator";
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import { Content } from '../components/Content'
+import Layout from '../components/Layout'
+import { LoginForm } from '../components/LoginForm'
+import { tokenVerifier } from '../utils/authenticator'
 
 function Home() {
-  const router = useRouter();
+  const router = useRouter()
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user")!);
-    const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem('user')!)
+    const token = localStorage.getItem('token')
 
     if (user && token) {
-      const isValid = tokenVerifier(token);
-      
+      const isValid = tokenVerifier(token)
+
       if (isValid?.id === user.id) {
-        router.push("/welcome");
+        router.push('/welcome')
       }
     }
-  }, [router]);
+  }, [router])
 
   return (
-    <>
-      <Head>
-        <title>GCB - Login</title>
-        <meta name="description" content="GCB Investimentos - Login" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <S.Container>
-        <Content />
-        <LoginForm />
-      </S.Container>
-    </>
-  );
+    <Layout title='GCB - Login' description='Página de login'>
+      <Content />
+      <LoginForm />
+    </Layout>
+  )
 }
 
-export default Home;
+export default Home

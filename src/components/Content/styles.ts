@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const Container = styled.div`
   color: var(--brown);
   height: 100%;
-  padding: 6rem 8rem;
+  padding: 0 8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 3rem;
 
   @media (max-width: 1250px) {
-    padding: 6rem 3rem;
+    padding: 0 3rem;
   }
 
   @media (max-width: 900px) {
@@ -30,15 +30,6 @@ export const Container = styled.div`
 
     @media (max-width: 1000px) {
       font-size: 1.5rem;
-    }
-  }
-
-  div {
-    position: relative;
-    top: 64px;
-  
-    @media (max-width: 1000px) {
-      max-width: 340px;
     }
   }
 `

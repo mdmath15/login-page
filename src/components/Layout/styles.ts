@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.main`
   max-width: 100vw;
@@ -18,4 +18,3 @@ export const Container = styled.main`
     grid-template-columns: 1fr;
   }
 `
-

@@ -2,30 +2,46 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { FormEvent, useRef, useState } from 'react'
 import useMedia from '../../hooks/useMedia'
+import { AppColors } from '../../styles/global'
 import { tokenGenerator } from '../../utils/authenticator'
 import { IdGenerator } from '../../utils/id-generator'
 import { passwordValidator } from '../../utils/password-validator'
 import { Button } from '../Button'
+import Input from '../Input'
+import Logo from '../Logo'
 import * as S from './styles'
 
 export function SignUpForm() {
   const mobile = useMedia('(max-width: 900px)')
-  const name = useRef<HTMLInputElement | null>(null)
-  const email = useRef<HTMLInputElement | null>(null)
-  const password = useRef<HTMLInputElement | null>(null)
-  const terms = useRef<HTMLInputElement | null>(null)
+  const [name, setName] = useState<string>('')
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const [terms, setTerms] = useState<boolean>(false)
   const [errors, setErrors] = useState<string[]>([])
-
   const router = useRouter()
+
+  const onChangeName = (e: FormEvent<HTMLInputElement>) => { 
+    setName(e.currentTarget.value)
+  }
+  const onChangeEmail = (e: FormEvent<HTMLInputElement>) => { 
+    setEmail(e.currentTarget.value)
+  }
+  const onChangePassword = (e: FormEvent<HTMLInputElement>) => { 
+    setPassword(e.currentTarget.value)
+  }
+  const onChangeTerms = (e: FormEvent<HTMLInputElement>) => { 
+    setTerms(e.currentTarget.checked)
+  }
+
 
   const signUp = (e: FormEvent) => {
     e.preventDefault()
 
     const user = {
       id: IdGenerator(),
-      name: name.current?.value,
-      email: email.current?.value,
-      password: password.current?.value
+      name,
+      email,
+      password
     }
 
     const isValid = passwordValidator(user.password)
@@ -45,18 +61,34 @@ export function SignUpForm() {
   return (
     <S.Container>
       <form onSubmit={signUp}>
-        {mobile && (
-          <div>
-            <Image src='/gcb-mobile.svg' alt='GCB Logo' width={420} height={120} />
-          </div>
-        )}
-        <label htmlFor='name'>Seu Nome</label>
-        <input ref={name} type='text' id='name' name='name' placeholder='Nome' required />
-        <label htmlFor='email'>Email</label>
-        <input ref={email} type='email' id='email' name='email' placeholder='Email' required />
-        <label htmlFor='password'>Senha</label>
-        <input
-          ref={password}
+        {mobile && <Logo src='/gcb-mobile.svg' alt='GCB Logo' width={420} height={120} />}
+        <Input
+          label='Seu Nome'
+          htmlFor='name'
+          value={name}
+          onChange={onChangeName}
+          type='text'
+          id='name'
+          name='name'
+          placeholder='Nome'
+          required
+        />
+        <Input
+          label='Email'
+          htmlFor='email'
+          value={email}
+          onChange={onChangeEmail}
+          type='email'
+          id='email'
+          name='email'
+          placeholder='Email'
+          required
+        />
+        <Input
+          label='Senha'
+          htmlFor='password'
+          value={password}
+          onChange={onChangePassword}
           type='password'
           id='password'
           name='password'
@@ -67,12 +99,13 @@ export function SignUpForm() {
           {errors && errors.map((error, index) => <span key={index}>{error}</span>)}
         </S.Errors>
         <div>
-          <input ref={terms} type='checkbox' id='terms' name='terms' required />
+          <input checked={terms} onChange={onChangeTerms} type='checkbox' id='terms' name='terms' required />
           <label htmlFor='terms'>Eu li e aceito os Termos e Condições</label>
         </div>
-        <Button type='submit'>Entrar</Button>
+        <Button type='submit' bgColor={AppColors.brown} color={AppColors.caramelo}>
+          Entrar
+        </Button>
       </form>
     </S.Container>
   )
 }
-

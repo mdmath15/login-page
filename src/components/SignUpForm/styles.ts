@@ -7,18 +7,18 @@ export const Container = styled.div`
   background-position: right center;
   background-size: 50vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 
   @media (max-width: 900px) {
-    background-position: right center;
-    justify-content: center;
+    align-items: center;
   }
 
   form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2rem 4rem;
+    padding: 2rem 3rem;
     border-radius: 0.5rem;
     width: 100%;
     min-height: 464px;
@@ -29,94 +29,27 @@ export const Container = styled.div`
     @media (max-width: 1150px) {
       max-width: 420px;
       margin-left: -80px;
-      padding: 1rem 3rem;
     }
 
     @media (max-width: 900px) {
       background: none;
-      margin: 0 1rem;
-      height: auto;
-
-      div {
-        align-self: center;
-      }
-    }
-
-    label {
-      font-size: 1.8rem;
-      color: var(--bege-escuro);
-
-      @media (max-width: 1000px) {
-        font-size: 1.5rem;
-      }
-
-      @media (max-width: 900px) {
-        color: var(--bege-claro);
-        margin: 0 auto;
-        margin-top: 2rem;
-
-        &:last-child {
-          color: #fff;
-          font-size: 1rem;
-          padding: 0 0.5rem;
-        }
-      }
-    }
-
-    input {
-      border: none;
-      border-bottom: 1.25px solid var(--brown);
-      padding: 0.5rem 0;
-      outline: none;
-
-      @media (max-width: 900px) {
-        border-bottom: 1.25px solid #fff;
-        background: none;
-        color: #fff;
-      }
-
-      & + label {
-        margin-top: 2rem;
-      }
-
-      &::placeholder {
-        font-size: 1.2rem;
-        font-weight: 500;
-      }
+      margin: 0 auto;
+      height: 600px;
     }
 
     div {
+      display: flex;
+      align-items: center;
+      margin-top: -1rem;
+
+      @media (max-width: 900px) {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+
       label {
         font-size: 1rem;
         margin-left: 0.25rem;
-
-        @media (max-width: 900px) {
-          margin-left: 0;
-        }
-      }
-    }
-
-    button {
-      align-self: flex-start;
-      font-size: 1rem;
-      color: var(--bege-claro);
-      background: var(--brown);
-      border: 0;
-      padding: 0 4rem;
-      border-radius: 0.5rem;
-      height: 3rem;
-      transition: filter 0.2s;
-      margin-top: 1rem;
-
-      @media (max-width: 900px) {
-        margin: 0 auto;
-        margin-top: 2rem;
-        color: var(--bege-escuro);
-        background: #fff;
-      }
-
-      &:hover {
-        filter: brightness(0.8);
       }
     }
   }
