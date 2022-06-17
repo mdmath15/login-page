@@ -1,5 +1,6 @@
 import * as S from './styles'
-interface InputProps {
+
+export interface InputProps {
   id: string
   name: string
   label: string
@@ -11,7 +12,7 @@ interface InputProps {
   required?: boolean
 }
 
-export default function Input({
+export function Input({
   name,
   placeholder,
   label,
@@ -23,7 +24,7 @@ export default function Input({
   required
 }: InputProps) {
   return (
-    <>
+    <S.Container>
       <S.Label htmlFor={htmlFor}>{label}</S.Label>
       <S.Input
         value={value}
@@ -34,6 +35,6 @@ export default function Input({
         placeholder={placeholder}
         required={required}
       />
-    </>
+    </S.Container>
   )
 }

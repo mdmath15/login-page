@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import useMedia from '../../hooks/useMedia'
 import { AppColors } from '../../styles/global'
 import { Button } from '../Button'
@@ -13,6 +14,14 @@ interface WelcomeFormProps {
 
 export function WelcomeForm({ user }: WelcomeFormProps) {
   const mobile = useMedia('(max-width: 900px)')
+  const router = useRouter()
+
+  const logout = (): void => {
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+    router.push('/')
+  }
+
   return (
     <S.ContainerWelcome>
       {mobile && (
@@ -31,6 +40,9 @@ export function WelcomeForm({ user }: WelcomeFormProps) {
           <a target='blank' href={`mailto:${user.email}`}>
             Abrir email
           </a>
+        </Button>
+        <Button type='submit' bgColor={AppColors.brown} color={AppColors.begeEscuro} logout={logout} >
+          Logout
         </Button>
       </form>
     </S.ContainerWelcome>

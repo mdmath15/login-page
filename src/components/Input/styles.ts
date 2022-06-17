@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 import { AppColors } from '../../styles/global'
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`
+
 export const Label = styled.label`
   font-size: 1.8rem;
   color: ${AppColors.caramelo};
@@ -22,6 +28,7 @@ export const Input = styled.input`
   border-bottom: 1.25px solid ${AppColors.brown};
   outline: none;
   padding: 0.25rem 0;
+  background-color: transparent;
 
   @media (max-width: 900px) {
     border-bottom: 1.25px solid ${AppColors.white};

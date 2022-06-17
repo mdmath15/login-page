@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { FormEvent, useState } from 'react'
+import { toast } from 'react-toastify'
 import { Form, useForm } from '../../hooks/useForm'
 import useMedia from '../../hooks/useMedia'
 import { AppColors } from '../../styles/global'
@@ -7,7 +8,7 @@ import { IdGenerator } from '../../utils/id-generator'
 import { passwordValidator } from '../../utils/password-validator'
 import { Button } from '../Button'
 import { CheckBox } from '../CheckBox'
-import Input from '../Input'
+import { Input } from '../Input'
 import Logo from '../Logo'
 import * as S from './styles'
 
@@ -42,6 +43,7 @@ export function SignUpForm() {
     }
 
     localStorage.setItem('users', JSON.stringify([...users, user]))
+    toast.success('Usuário cadastrado com sucesso!')
     router.push('/')
   }
 

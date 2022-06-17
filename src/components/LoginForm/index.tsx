@@ -8,7 +8,7 @@ import useMedia from '../../hooks/useMedia'
 import { AppColors } from '../../styles/global'
 import { tokenGenerator } from '../../utils/authenticator'
 import { Button } from '../Button'
-import Input from '../Input'
+import { Input } from '../Input'
 import Logo from '../Logo'
 import * as S from './styles'
 
