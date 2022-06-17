@@ -1,111 +1,116 @@
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import { FormEvent, useRef, useState } from 'react'
-import useMedia from '../../hooks/useMedia'
-import { AppColors } from '../../styles/global'
-import { tokenGenerator } from '../../utils/authenticator'
-import { IdGenerator } from '../../utils/id-generator'
-import { passwordValidator } from '../../utils/password-validator'
-import { Button } from '../Button'
-import Input from '../Input'
-import Logo from '../Logo'
-import * as S from './styles'
+import { useRouter } from "next/router";
+import { FormEvent, useState } from "react";
+import { Form, useForm } from "../../hooks/useForm";
+import useMedia from "../../hooks/useMedia";
+import { AppColors } from "../../styles/global";
+import { tokenGenerator } from "../../utils/authenticator";
+import { IdGenerator } from "../../utils/id-generator";
+import { passwordValidator } from "../../utils/password-validator";
+import { Button } from "../Button";
+import Input from "../Input";
+import Logo from "../Logo";
+import * as S from "./styles";
 
 export function SignUpForm() {
-  const mobile = useMedia('(max-width: 900px)')
-  const [name, setName] = useState<string>('')
-  const [email, setEmail] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
-  const [terms, setTerms] = useState<boolean>(false)
-  const [errors, setErrors] = useState<string[]>([])
-  const router = useRouter()
+  const [errors, setErrors] = useState<string[]>([]);
+  const { form, handleInputChange } = useForm({
+    name: "",
+    email: "",
+    password: "",
+    terms: false,
+  } as Form);
+  const mobile = useMedia("(max-width: 900px)");
 
-  const onChangeName = (e: FormEvent<HTMLInputElement>) => { 
-    setName(e.currentTarget.value)
-  }
-  const onChangeEmail = (e: FormEvent<HTMLInputElement>) => { 
-    setEmail(e.currentTarget.value)
-  }
-  const onChangePassword = (e: FormEvent<HTMLInputElement>) => { 
-    setPassword(e.currentTarget.value)
-  }
-  const onChangeTerms = (e: FormEvent<HTMLInputElement>) => { 
-    setTerms(e.currentTarget.checked)
-  }
-
+  const router = useRouter();
 
   const signUp = (e: FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const user = {
       id: IdGenerator(),
-      name,
-      email,
-      password
-    }
+      name: form.name,
+      email: form.email,
+      password: form.password,
+    };
 
-    const isValid = passwordValidator(user.password)
+    const isValid = passwordValidator(user.password);
 
     if (!isValid.result) {
-      setErrors(isValid.errors)
-      return
+      setErrors(isValid.errors);
+      return;
     }
 
-    const token = tokenGenerator(user.id)
+    const token = tokenGenerator(user.id);
+    localStorage.setItem("user", JSON.stringify(user));
 
-    localStorage.setItem('user', JSON.stringify(user))
-    localStorage.setItem('token', token)
-    router.push('/')
-  }
+    router.push("/");
+  };
 
   return (
     <S.Container>
       <form onSubmit={signUp}>
-        {mobile && <Logo src='/gcb-mobile.svg' alt='GCB Logo' width={420} height={120} />}
+        {mobile && (
+          <Logo src="/gcb-mobile.svg" alt="GCB Logo" width={420} height={120} />
+        )}
         <Input
-          label='Seu Nome'
-          htmlFor='name'
-          value={name}
-          onChange={onChangeName}
-          type='text'
-          id='name'
-          name='name'
-          placeholder='Nome'
+          label="Seu Nome"
+          htmlFor="name"
+          value={form.name!}
+          onChange={handleInputChange}
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Nome"
           required
         />
         <Input
-          label='Email'
-          htmlFor='email'
-          value={email}
-          onChange={onChangeEmail}
-          type='email'
-          id='email'
-          name='email'
-          placeholder='Email'
+          label="Email"
+          htmlFor="email"
+          value={form.email}
+          onChange={handleInputChange}
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
           required
         />
         <Input
-          label='Senha'
-          htmlFor='password'
-          value={password}
-          onChange={onChangePassword}
-          type='password'
-          id='password'
-          name='password'
-          placeholder='Senha'
+          label="Senha"
+          htmlFor="password"
+          value={form.password}
+          onChange={handleInputChange}
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Senha"
           required
         />
-        <S.Errors>
-          {errors && errors.map((error, index) => <span key={index}>{error}</span>)}
-        </S.Errors>
+        {errors && (
+          <S.Errors>
+            {errors.map((error, index) => (
+              <span key={index}>{error}</span>
+            ))}
+          </S.Errors>
+        )}
         <div>
-          <input checked={terms} onChange={onChangeTerms} type='checkbox' id='terms' name='terms' required />
-          <label htmlFor='terms'>Eu li e aceito os Termos e Condições</label>
+          <input
+            checked={form.terms}
+            onChange={handleInputChange}
+            type="checkbox"
+            id="terms"
+            name="terms"
+            required
+          />
+          <label htmlFor="terms">Eu li e aceito os Termos e Condições</label>
         </div>
-        <Button type='submit' bgColor={AppColors.brown} color={AppColors.caramelo}>
+        <Button
+          type="submit"
+          bgColor={AppColors.brown}
+          color={AppColors.caramelo}
+        >
           Entrar
         </Button>
       </form>
     </S.Container>
-  )
+  );
 }

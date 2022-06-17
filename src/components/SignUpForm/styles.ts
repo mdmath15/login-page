@@ -55,8 +55,8 @@ export const Container = styled.div`
   }
 `
 
-export const Errors = styled.div`
-  margin: 0.5rem 0;
+export const Errors = styled.section`
+  padding: 1rem 0 1rem;
 
   span {
     display: block;
