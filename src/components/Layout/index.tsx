@@ -3,9 +3,9 @@ import React from 'react'
 import * as S from './styles'
 
 interface LayoutProps {
-    children: React.ReactNode,
-    title: string
-    description: string
+  children: React.ReactNode
+  title: string
+  description: string
 }
 
 export default function Layout({ children, title, description }: LayoutProps) {

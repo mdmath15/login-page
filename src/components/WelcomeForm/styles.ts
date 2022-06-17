@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import styled from 'styled-components'
+import { AppColors } from '../../styles/global'
 
 export const ContainerWelcome = styled.section`
   background: var(--brown);
@@ -7,11 +8,12 @@ export const ContainerWelcome = styled.section`
   background-position: right center;
   background-size: 50vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
 
   @media (max-width: 900px) {
-    background-position: right center;
+    align-items: center;
     justify-content: center;
   }
 
@@ -34,28 +36,27 @@ export const ContainerWelcome = styled.section`
 
     @media (max-width: 900px) {
       max-width: 460px;
-      gap: 4rem;
+      gap: 3rem;
       margin: 0 auto;
       background: none;
-      height: auto;
       justify-content: center;
     }
 
     h1 {
       font-size: 2.5rem;
-      color: var(--bege-escuro);
+      color: ${AppColors.caramelo};
 
       @media (max-width: 900px) {
-        color: var(--bege-claro);
+        color: ${AppColors.begeEscuro};
       }
     }
 
     p {
       font-size: 1rem;
-      color: var(--brown);
+      color: ${AppColors.brown};
 
       @media (max-width: 900px) {
-        color: #fff;
+        color: ${AppColors.white};
       }
     }
   }

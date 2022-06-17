@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { AppColors } from '../../styles/global'
 
 export const Container = styled.div`
-  background: var(--brown);
+  background: ${AppColors.brown};
   background-image: url('background.png');
   background-repeat: no-repeat;
   background-position: right center;
@@ -21,10 +22,10 @@ export const Container = styled.div`
     padding: 2rem 3rem;
     border-radius: 0.5rem;
     width: 100%;
-    min-height: 464px;
+    min-height: 520px;
     max-width: 460px;
     margin-left: -124px;
-    background: #fff;
+    background: ${AppColors.white};
 
     @media (max-width: 1150px) {
       max-width: 420px;
@@ -34,28 +35,13 @@ export const Container = styled.div`
     @media (max-width: 900px) {
       background: none;
       margin: 0 auto;
-      height: 600px;
-    }
-
-    div {
-      display: flex;
-      align-items: center;
-      margin-top: -1rem;
-
-      @media (max-width: 900px) {
-        margin-top: 0;
-        margin-bottom: 1rem;
-      }
-
-      label {
-        font-size: 1rem;
-        margin-left: 0.25rem;
-      }
+      height: 620px;
+      padding: 0 3rem;
     }
   }
 `
 
-export const Errors = styled.section`
+export const Errors = styled.div`
   padding: 1rem 0 1rem;
 
   span {

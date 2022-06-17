@@ -19,7 +19,13 @@ export function Content() {
         <strong>move</strong> no dia-a-dia
       </p>
 
-      <LogoDesktop src={'/gcb-desktop.svg'} alt='GCB Logo' width={420} height={120} position='relative'/>
-      </S.Container>
+      <LogoDesktop
+        src={'/gcb-desktop.svg'}
+        alt='GCB Logo'
+        width={420}
+        height={120}
+        position='relative'
+      />
+    </S.Container>
   )
 }

@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import { AppColors } from '../../styles/global'
 
 export const Label = styled.label`
   font-size: 1.8rem;
-  color: var(--bege-escuro);
+  color: ${AppColors.caramelo};
   padding: 0.5rem 0;
 
   @media (max-width: 1000px) {
@@ -12,20 +13,20 @@ export const Label = styled.label`
   @media (max-width: 900px) {
     margin: 0 auto;
     margin-top: 2rem;
-    color: var(--bege-claro);
+    color: ${AppColors.begeEscuro};
   }
 `
 
 export const Input = styled.input`
   border: none;
-  border-bottom: 1.25px solid var(--brown);
+  border-bottom: 1.25px solid ${AppColors.brown};
   outline: none;
   padding: 0.25rem 0;
 
   @media (max-width: 900px) {
-    border-bottom: 1.25px solid #fff;
+    border-bottom: 1.25px solid ${AppColors.white};
     background: none;
-    color: #fff;
+    color: ${AppColors.white};
   }
 
   &::placeholder {
