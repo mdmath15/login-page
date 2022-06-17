@@ -21,5 +21,9 @@ export const Container = styled.div`
     }
   }
 
+  input[type='checkbox'] {
+    background-color: ${AppColors.brown};
+  }
+
   
 `

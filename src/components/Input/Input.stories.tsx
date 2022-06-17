@@ -1,5 +1,4 @@
 import { Story, ComponentMeta } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 import { Input, InputProps } from '.'
 
 export default {
@@ -17,4 +16,7 @@ InputText.args = {
   placeholder: 'Digite seu nome',
   type: 'text',
   required: true,
+  onChange(e) {
+    console.log(e.target.value)
+  }
 }

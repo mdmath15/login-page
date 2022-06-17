@@ -1,9 +1,8 @@
 import * as S from './styles'
 
-interface CheckBoxProps {
+export interface CheckBoxProps {
   id: string
   name: string
-
   checked: boolean
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   htmlFor: string
