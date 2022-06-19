@@ -1,5 +1,4 @@
-import Image from 'next/image'
-import LogoDesktop from '../Logo'
+import { Logo } from '../Logo'
 import * as S from './styles'
 
 export function Content() {
@@ -19,7 +18,7 @@ export function Content() {
         <strong>move</strong> no dia-a-dia
       </p>
 
-      <LogoDesktop
+      <Logo
         src={'/gcb-desktop.svg'}
         alt='GCB Logo'
         width={420}

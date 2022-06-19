@@ -35,8 +35,8 @@ export const Container = styled.div`
     @media (max-width: 900px) {
       background: none;
       margin: 0 auto;
-      height: 620px;
-      padding: 0 3rem;
+      min-height: 620px;
+      padding: 3rem;
     }
   }
 `

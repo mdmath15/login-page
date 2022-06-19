@@ -7,14 +7,16 @@ export default {
   component: Button
 } as ComponentMeta<typeof Button>
 
-export const Desktop: Story<ButtonProps> = (args) => <Button {...args}>My Button</Button>
+const Template: Story<ButtonProps> = (args) => <Button {...args}>My Button</Button>
+
+export const Desktop = Template.bind({})
 Desktop.args = {
   bgColor: AppColors.brown,
   color: AppColors.begeEscuro,
-  type: 'submit'
+  type: 'submit',
 }
 
-export const Mobile: Story<ButtonProps> = (args) => <Button {...args}>My Button</Button>
+export const Mobile = Template.bind({})
 Mobile.args = {
   color: AppColors.brown,
   bgColor: AppColors.white,

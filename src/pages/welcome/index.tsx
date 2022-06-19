@@ -4,6 +4,7 @@ import { Content } from '../../components/Content'
 import { WelcomeForm } from '../../components/WelcomeForm'
 import Layout from '../../components/Layout'
 import { tokenVerifier } from '../../utils/authenticator'
+import { parseCookies } from 'nookies'
 
 interface User {
   name: string
@@ -15,8 +16,10 @@ function Welcome() {
   const router = useRouter()
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user') || '{}')
-    const token = localStorage.getItem('token')
+    // const user = JSON.parse(localStorage.getItem('user') || '{}')
+    // const token = localStorage.getItem('token')
+    const user = JSON.parse(parseCookies().user)
+    const token = parseCookies().token
 
     if (!token) {
       router.push('/')

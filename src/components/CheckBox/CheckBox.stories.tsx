@@ -6,15 +6,14 @@ export default {
   component: CheckBox
 } as ComponentMeta<typeof CheckBox>
 
-export const InputCheckBox: Story<CheckBoxProps> = (args) => <CheckBox {...args} />
+const Template: Story<CheckBoxProps> = (args) => <CheckBox {...args} />
+
+export const InputCheckBox = Template.bind({})
 InputCheckBox.args = {
   id: 'terms',
   htmlFor: 'terms',
   name: 'terms',
   checked: false,
   type: 'checkbox',
-  required: true,
-  onChange(e) {
-    console.log(e.target.checked)
-  },
+  required: true
 }

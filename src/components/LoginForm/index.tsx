@@ -9,11 +9,11 @@ import { AppColors } from '../../styles/global'
 import { tokenGenerator } from '../../utils/authenticator'
 import { Button } from '../Button'
 import { Input } from '../Input'
-import Logo from '../Logo'
+import { Logo } from '../Logo'
 import * as S from './styles'
 
 export function LoginForm() {
-  const [loading, setLoading] = useState<null | boolean>()
+  const [loading, setLoading] = useState<boolean>(false)
   const { form, handleInputChange } = useForm({ password: '', email: '' } as Form)
   const mobile = useMedia('(max-width: 900px)')
   const router = useRouter()
@@ -30,15 +30,13 @@ export function LoginForm() {
     )
 
     if (!user) {
-      setTimeout(() => toast.error('Dados incorretos'), 2000)
+      return setTimeout(() => toast.error('Dados incorretos'), 2000)
     }
-
-    if (user) {
-      localStorage.setItem('user', JSON.stringify(user))
-      localStorage.setItem('token', tokenGenerator(user.id))
-      setTimeout(() => toast.success('Login realizado com sucesso'), 2000)
-      setTimeout(() => router.push('/welcome'), 2000)
-    }
+  
+    localStorage.setItem('user', JSON.stringify(user))
+    localStorage.setItem('token', tokenGenerator(user.id))
+    setTimeout(() => toast.success('Login realizado com sucesso'), 2000)
+    setTimeout(() => router.push('/welcome'), 2000)
   }
 
   return (

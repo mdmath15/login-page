@@ -9,7 +9,7 @@ import { passwordValidator } from '../../utils/password-validator'
 import { Button } from '../Button'
 import { CheckBox } from '../CheckBox'
 import { Input } from '../Input'
-import Logo from '../Logo'
+import {Logo} from '../Logo'
 import * as S from './styles'
 
 export function SignUpForm() {
@@ -49,7 +49,7 @@ export function SignUpForm() {
 
   return (
     <S.Container>
-      <form onSubmit={signUp}>
+      <form onSubmit={signUp} >
         {mobile && <Logo src='/gcb-mobile.svg' alt='GCB Logo' width={420} height={120} />}
         <Input
           label='Seu Nome'

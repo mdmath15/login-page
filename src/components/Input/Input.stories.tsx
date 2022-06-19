@@ -3,10 +3,15 @@ import { Input, InputProps } from '.'
 
 export default {
   title: 'Inputs/Input',
-  component: Input
+  component: Input,
+  argTypes: {
+    type: { control: 'select', options: ['text', 'email', 'password', 'number'] }
+  }
 } as ComponentMeta<typeof Input>
 
-export const InputText: Story<InputProps> = (args) => <Input {...args} />
+const Template: Story<InputProps> = (args) => <Input {...args} />
+
+export const InputText = Template.bind({})
 InputText.args = {
   id: 'name',
   htmlFor: 'name',
@@ -15,8 +20,5 @@ InputText.args = {
   value: '',
   placeholder: 'Digite seu nome',
   type: 'text',
-  required: true,
-  onChange(e) {
-    console.log(e.target.value)
-  }
+  required: true
 }
