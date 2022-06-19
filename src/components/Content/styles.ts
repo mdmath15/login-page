@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   color: var(--brown);
@@ -9,8 +9,24 @@ export const Container = styled.div`
   justify-content: center;
   gap: 3rem;
 
-  @media (max-width: 1250px) {
-    padding: 0 3rem;
+  @media (max-width: 1420px) {
+    padding: 0 7rem;
+  }
+
+  @media (max-width: 1320px) {
+    padding: 0 6rem;
+  }
+
+  @media (max-width: 1260px) {
+    padding: 0 5rem;
+  }
+
+  @media (max-width: 1220px) {
+    padding: 0 4rem;
+  }
+
+  @media (max-width: 1120px) {
+    padding: 0 2.5rem;
   }
 
   @media (max-width: 900px) {

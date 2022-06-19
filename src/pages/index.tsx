@@ -1,8 +1,7 @@
-
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { Content } from '../components/Content'
-import Layout from '../components/Layout'
+import { Layout } from '../components/Layout'
 import { LoginForm } from '../components/LoginForm'
 import { tokenVerifier } from '../utils/authenticator'
 

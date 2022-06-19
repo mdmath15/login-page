@@ -1,18 +1,25 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { LoginForm } from '.'
+import { WelcomeForm } from '.'
 
 export default {
-  title: 'Forms/LoginForm',
-  component: LoginForm,
+  title: 'Forms/WelcomeForm',
+  component: WelcomeForm,
   parameters: {
     layout: 'fullscreen'
   }
-} as ComponentMeta<typeof LoginForm>
+} as ComponentMeta<typeof WelcomeForm>
 
-const Template: ComponentStory<typeof LoginForm> = () => <LoginForm />
+const Template: ComponentStory<typeof WelcomeForm> = (args) => <WelcomeForm {...args} />
 
 export const Form = Template.bind({})
+Form.args = {
+  user: {
+    name: 'Matheus',
+    email: 'math@gmail.com'
+  }
+}
+
 Form.decorators = [
   (Story) => {
     return (

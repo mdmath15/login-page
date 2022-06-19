@@ -20,5 +20,6 @@ InputText.args = {
   value: '',
   placeholder: 'Digite seu nome',
   type: 'text',
-  required: true
+  required: true,
+  onChange: (e) => {}
 }

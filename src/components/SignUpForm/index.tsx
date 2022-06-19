@@ -48,8 +48,7 @@ export function SignUpForm() {
   }
 
   return (
-    <S.Container>
-      <form onSubmit={signUp} >
+      <S.Container onSubmit={signUp} >
         {mobile && <Logo src='/gcb-mobile.svg' alt='GCB Logo' width={420} height={120} />}
         <Input
           label='Seu Nome'
@@ -103,7 +102,7 @@ export function SignUpForm() {
         <Button type='submit' bgColor={AppColors.brown} color={AppColors.begeEscuro}>
           Cadastrar
         </Button>
-      </form>
-    </S.Container>
+      </S.Container>
+ 
   )
 }

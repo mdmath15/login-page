@@ -1,42 +1,33 @@
 import styled from 'styled-components'
 import { AppColors } from '../../styles/global'
 
-export const Container = styled.div`
-  background: ${AppColors.brown};
-  background-image: url('background.png');
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 50vh;
+export const Container = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 2rem 3rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  min-height: 500px;
+  max-width: 460px;
+  background: ${AppColors.white};
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
-  @media (max-width: 900px) {
-    align-items: center;
+  button {
+    margin-top: 1rem;
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 2rem 3rem;
-    border-radius: 0.5rem;
-    width: 100%;
-    min-height: 520px;
-    max-width: 460px;
-    margin-left: -124px;
-    background: ${AppColors.white};
+  @media (max-width: 1150px) {
+    max-width: 420px;
+  }
 
-    @media (max-width: 1150px) {
-      max-width: 420px;
-      margin-left: -80px;
-    }
+  @media (max-width: 900px) {
+    background: none;
+    margin: 0 auto;
+    min-height: 620px;
 
-    @media (max-width: 900px) {
-      background: none;
-      margin: 0 auto;
-      min-height: 620px;
-      padding: 3rem;
+    button {
+      margin-top: 1rem;
     }
   }
 `

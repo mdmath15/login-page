@@ -34,8 +34,13 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: var(--bege);
-        -webkit-font-smoothing: antialiased;
+        background: rgb(255,235,214);
+        background: linear-gradient(90deg, rgba(255,235,214,1) 55%, rgba(66,59,50,1) 55%);
+        -webkit-font-smoothing: antialiased; 
+
+        @media (max-width: 900px) {
+            background: var(--brown);
+        }
     }
 
     body, input, textarea, button {

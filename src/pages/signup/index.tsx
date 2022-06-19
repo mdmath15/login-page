@@ -1,6 +1,6 @@
 import { Content } from '../../components/Content'
 import { SignUpForm } from '../../components/SignUpForm'
-import Layout from '../../components/Layout'
+import { Layout } from '../../components/Layout'
 
 function SingUp() {
   return (

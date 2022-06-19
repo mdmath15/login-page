@@ -3,7 +3,12 @@ import { CheckBox, CheckBoxProps } from '.'
 
 export default {
   title: 'Inputs/CheckBox',
-  component: CheckBox
+  component: CheckBox,
+  argTypes: {
+    checked: {
+      control: 'boolean'
+    }
+  }
 } as ComponentMeta<typeof CheckBox>
 
 const Template: Story<CheckBoxProps> = (args) => <CheckBox {...args} />
@@ -15,5 +20,6 @@ InputCheckBox.args = {
   name: 'terms',
   checked: false,
   type: 'checkbox',
-  required: true
+  required: true,
+  onChange: (e) => {}
 }

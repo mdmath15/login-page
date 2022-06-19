@@ -32,49 +32,48 @@ export function LoginForm() {
     if (!user) {
       return setTimeout(() => toast.error('Dados incorretos'), 2000)
     }
-  
+
     localStorage.setItem('user', JSON.stringify(user))
-    localStorage.setItem('token', tokenGenerator(user.id))
+    
+    // localStorage.setItem('token', tokenGenerator(user.id))
     setTimeout(() => toast.success('Login realizado com sucesso'), 2000)
     setTimeout(() => router.push('/welcome'), 2000)
   }
 
   return (
-    <S.Container>
+    <S.Container onSubmit={login}>
       {mobile && <Logo src='/gcb-mobile.svg' alt='GCB Logo' width={420} height={120} />}
-      <form onSubmit={login}>
-        <Input
-          label='Email'
-          htmlFor='email'
-          onChange={handleInputChange}
-          value={form.email}
-          type='email'
-          id='email'
-          name='email'
-          placeholder='Email'
-          required
-        />
-        <Input
-          label='Senha'
-          htmlFor='password'
-          onChange={handleInputChange}
-          value={form.password}
-          type='password'
-          id='password'
-          name='password'
-          placeholder='Senha'
-          required
-        />
-        <span>
-          Não tem cadastro?{' '}
-          <Link href='/signup'>
-            <a>Cadastre-se agora!</a>
-          </Link>
-        </span>
-        <Button type='submit' bgColor={AppColors.brown} color={AppColors.begeEscuro}>
-          {loading ? <S.Loading size={32} /> : 'Entrar'}
-        </Button>
-      </form>
+      <Input
+        label='Email'
+        htmlFor='email'
+        onChange={handleInputChange}
+        value={form.email}
+        type='email'
+        id='email'
+        name='email'
+        placeholder='Email'
+        required
+      />
+      <Input
+        label='Senha'
+        htmlFor='password'
+        onChange={handleInputChange}
+        value={form.password}
+        type='password'
+        id='password'
+        name='password'
+        placeholder='Senha'
+        required
+      />
+      <span>
+        Não tem cadastro?{' '}
+        <Link href='/signup'>
+          <a>Cadastre-se agora!</a>
+        </Link>
+      </span>
+      <Button type='submit' bgColor={AppColors.brown} color={AppColors.begeEscuro}>
+        {loading ? <S.Loading size={32} /> : 'Entrar'}
+      </Button>
     </S.Container>
   )
 }
