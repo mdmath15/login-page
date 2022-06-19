@@ -34,8 +34,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: rgb(255,235,214);
-        background: linear-gradient(90deg, rgba(255,235,214,1) 55%, rgba(66,59,50,1) 55%);
+       
+        background: linear-gradient(90deg, rgba(255,235,214,1) 60%, rgba(66,59,50,1) 60%);
         -webkit-font-smoothing: antialiased; 
 
         @media (max-width: 900px) {

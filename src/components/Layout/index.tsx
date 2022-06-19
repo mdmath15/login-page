@@ -8,7 +8,7 @@ interface LayoutProps {
   description: string
 }
 
-export  function Layout({ children, title, description }: LayoutProps) {
+export function Layout({ children, title, description }: LayoutProps) {
   return (
     <>
       <Head>
@@ -16,7 +16,9 @@ export  function Layout({ children, title, description }: LayoutProps) {
         <meta name='description' content={description} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <S.Container>{children}</S.Container>
+      <S.Container>
+        <S.Wrapper>{children}</S.Wrapper>
+      </S.Container>
     </>
   )
 }

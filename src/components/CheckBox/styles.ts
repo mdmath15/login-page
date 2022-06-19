@@ -19,10 +19,17 @@ export const Container = styled.div`
     @media (max-width: 900px) {
       color: ${AppColors.white};
     }
+
+    span {
+      text-decoration: underline;
+      font-weight: 600;
+      cursor: pointer;
+    }
   }
 
   input[type='checkbox'] {
     background-color: ${AppColors.brown};
+    cursor: pointer;
   }
 
   
