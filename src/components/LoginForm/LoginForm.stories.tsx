@@ -16,7 +16,8 @@ export const Form = Template.bind({})
 Form.decorators = [
   (Story) => {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', margin: '1rem' }}>
+      <div
+        style={{ display: 'flex', justifyContent: 'center', margin: '1rem', height: "100vh", alignItems: "center" }}>
         <Story />
       </div>
     )

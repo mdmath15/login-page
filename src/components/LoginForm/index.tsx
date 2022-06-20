@@ -35,7 +35,7 @@ export function LoginForm() {
 
     localStorage.setItem('user', JSON.stringify(user))
     
-    // localStorage.setItem('token', tokenGenerator(user.id))
+    localStorage.setItem('token', tokenGenerator(user.id))
     setTimeout(() => toast.success('Login realizado com sucesso'), 2000)
     setTimeout(() => router.push('/welcome'), 2000)
   }
