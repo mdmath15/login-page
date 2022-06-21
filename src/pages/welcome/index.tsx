@@ -4,6 +4,7 @@ import { Content } from '../../components/Content'
 import { WelcomeForm } from '../../components/WelcomeForm'
 import {Layout} from '../../components/Layout'
 import { tokenVerifier } from '../../utils/authenticator'
+import useMedia from '../../hooks/useMedia'
 
 interface User {
   name: string
@@ -12,7 +13,14 @@ interface User {
 
 function Welcome() {
   const [user, setUser] = useState<User>({} as User)
+  const mobile = useMedia('(max-width: 900px)')
   const router = useRouter()
+
+   const handleLogout = (): void => {
+     localStorage.removeItem('user')
+     localStorage.removeItem('token')
+     router.push('/')
+   }
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user') || '{}')
@@ -36,7 +44,7 @@ function Welcome() {
   return (
     <Layout title='GCB - Bem-vindo' description='Página de bem vindo'>
       <Content />
-      <WelcomeForm user={user} />
+      <WelcomeForm user={user} handleLogout={handleLogout} mobile={mobile!} />
     </Layout>
   )
 }

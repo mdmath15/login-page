@@ -2,6 +2,15 @@ import { Spinner } from 'phosphor-react'
 import styled, { keyframes } from 'styled-components'
 import { AppColors } from '../../styles/global'
 
+const visible = keyframes`
+  0% {
+    transform: translateX(90%);
+  }
+  100% {
+    transform:  translateX(0);
+  }
+`
+
 export const Spin = keyframes`
   0% {
     -webkit-transform: rotate(0);
@@ -19,6 +28,7 @@ export const Loading = styled(Spinner)`
 `
 
 export const Container = styled.form`
+  animation: ${visible} 500ms ease-in-out;
   background-color: ${AppColors.white};
   display: flex;
   flex-direction: column;
@@ -37,6 +47,7 @@ export const Container = styled.form`
   @media (max-width: 900px) {
     margin: 0 auto;
     background: none;
+    box-shadow: none;
   }
 
   span {

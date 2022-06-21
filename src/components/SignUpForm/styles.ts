@@ -25,6 +25,7 @@ export const Container = styled.form`
     background: none;
     margin: 0 auto;
     min-height: 620px;
+    box-shadow: none;
 
     button {
       margin-top: 1rem;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AppColors } from "../../styles/global"
 
 export interface ButtonProps {
   bgColor?: string
@@ -26,7 +27,7 @@ export const Container = styled.button<ButtonProps>`
 
   @media (max-width: 900px) {
     color: ${(props) => props.color};
-    background: #fff;
+    background: ${AppColors.white};
     margin: 0 auto;
   }
 

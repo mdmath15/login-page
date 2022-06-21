@@ -1,54 +1,26 @@
-import { useRouter } from 'next/router'
-import { FormEvent, useState } from 'react'
-import { toast } from 'react-toastify'
-import { Form, useForm } from '../../hooks/useForm'
-import useMedia from '../../hooks/useMedia'
 import { AppColors } from '../../styles/global'
-import { IdGenerator } from '../../utils/id-generator'
-import { passwordValidator } from '../../utils/password-validator'
 import { Button } from '../Button'
 import { CheckBox } from '../CheckBox'
 import { Input } from '../Input'
 import {Logo} from '../Logo'
 import * as S from './styles'
 
-export function SignUpForm() {
-  const [errors, setErrors] = useState<string[]>([])
-  const { form, handleInputChange } = useForm({
-    name: '',
-    email: '',
-    password: '',
-    terms: false
-  } as Form)
-  const mobile = useMedia('(max-width: 900px)')
-  const router = useRouter()
-
-  const signUp = (e: FormEvent) => {
-    e.preventDefault()
-
-    const users = JSON.parse(localStorage.getItem('users') || '[]')
-
-    const user = {
-      id: IdGenerator(),
-      name: form.name,
-      email: form.email,
-      password: form.password
-    }
-
-    const isValid = passwordValidator(user.password)
-
-    if (!isValid.result) {
-      setErrors(isValid.errors)
-      return
-    }
-
-    localStorage.setItem('users', JSON.stringify([...users, user]))
-    toast.success('Usuário cadastrado com sucesso!')
-    router.push('/')
+interface SignUpFormProps {
+  errors: string[]
+  mobile: boolean
+  form: {
+    name?: string
+    email: string
+    password: string
+    terms?: boolean
   }
+  handleSignUp: (e: React.FormEvent) => void
+  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
 
+export function SignUpForm({ errors, mobile, form, handleSignUp, handleInputChange }: SignUpFormProps) {
   return (
-      <S.Container onSubmit={signUp} >
+      <S.Container onSubmit={handleSignUp} >
         {mobile && <Logo src='/gcb-mobile.svg' alt='GCB Logo' width={420} height={120} />}
         <Input
           label='Seu Nome'

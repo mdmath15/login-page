@@ -5,7 +5,7 @@ import { AppColors } from '../../styles/global'
 export default {
   title: 'Buttons/Button',
   component: Button
-} as ComponentMeta<typeof Button>
+} as ComponentMeta<typeof Button> 
 
 const Template: Story<ButtonProps> = (args) => <Button {...args}>My Button</Button>
 

@@ -1,47 +1,24 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { FormEvent, useState } from 'react'
-import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import { Form, useForm } from '../../hooks/useForm'
-import useMedia from '../../hooks/useMedia'
 import { AppColors } from '../../styles/global'
-import { tokenGenerator } from '../../utils/authenticator'
 import { Button } from '../Button'
 import { Input } from '../Input'
 import { Logo } from '../Logo'
 import * as S from './styles'
 
-export function LoginForm() {
-  const [loading, setLoading] = useState<boolean>(false)
-  const { form, handleInputChange } = useForm({ password: '', email: '' } as Form)
-  const mobile = useMedia('(max-width: 900px)')
-  const router = useRouter()
-
-  const login = (e: FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
-    setTimeout(() => setLoading(false), 2000)
-
-    const users = JSON.parse(localStorage.getItem('users') || '[]')
-
-    const user = users.find(
-      (user: any) => user.email === form.email && user.password === form.password
-    )
-
-    if (!user) {
-      return setTimeout(() => toast.error('Dados incorretos'), 2000)
-    }
-
-    localStorage.setItem('user', JSON.stringify(user))
-    
-    localStorage.setItem('token', tokenGenerator(user.id))
-    setTimeout(() => toast.success('Login realizado com sucesso'), 2000)
-    setTimeout(() => router.push('/welcome'), 2000)
+interface LoginFormProps { 
+  loading?: boolean
+  mobile?: boolean
+  form: {
+    email: string
+    password: string
   }
+  handleLogin: (e: React.FormEvent) => void
+  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
 
+export function LoginForm({ loading, mobile, form, handleLogin, handleInputChange }: LoginFormProps) {
   return (
-    <S.Container onSubmit={login}>
+    <S.Container onSubmit={handleLogin}>
       {mobile && <Logo src='/gcb-mobile.svg' alt='GCB Logo' width={420} height={120} />}
       <Input
         label='Email'

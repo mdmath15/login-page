@@ -1,7 +1,7 @@
 import * as S from './styles'
 
 export interface ButtonProps {
-  type?: 'button' | 'submit' | 'reset'
+  type?: 'button' | 'submit' 
   children: React.ReactNode
   bgColor?: string
   color?: string

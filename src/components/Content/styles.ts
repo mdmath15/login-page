@@ -1,6 +1,16 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const visible = keyframes`
+  0% {
+    transform: translateX(-90%);
+  }
+  100% {
+    transform:  translateX(0);
+  }
+`
 
 export const Container = styled.div`
+  animation: ${visible} 500ms ease-in-out;
   justify-self: flex-start;
   color: var(--brown);
   height: 100%;

@@ -10,18 +10,11 @@ interface WelcomeFormProps {
     name: string
     email: string
   }
+  handleLogout: () => void
+  mobile: boolean
 }
 
-export function WelcomeForm({ user }: WelcomeFormProps) {
-  const mobile = useMedia('(max-width: 900px)')
-  const router = useRouter()
-
-  const logout = (): void => {
-    localStorage.removeItem('user')
-    localStorage.removeItem('token')
-    router.push('/')
-  }
-
+export function WelcomeForm({ user, handleLogout, mobile }: WelcomeFormProps) {
   return (
     <S.Container>
       {mobile && <Logo src='/gcb-mobile.svg' alt='GCB Logo' width={420} height={120} />}
@@ -37,7 +30,7 @@ export function WelcomeForm({ user }: WelcomeFormProps) {
           Abrir email
         </a>
       </Button>
-      <Button type='submit' bgColor={AppColors.brown} color={AppColors.begeEscuro} logout={logout}>
+      <Button type='submit' bgColor={AppColors.brown} color={AppColors.begeEscuro} logout={handleLogout}>
         Logout
       </Button>
     </S.Container>
