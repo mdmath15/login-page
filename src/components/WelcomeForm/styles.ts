@@ -35,6 +35,7 @@ export const Container = styled.form`
     background: none;
     justify-content: center;
     animation: none;
+    box-shadow: none;
   }
 
   h1 {
