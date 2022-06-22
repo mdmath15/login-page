@@ -4,9 +4,11 @@ import { AppColors } from '../../styles/global'
 
 const visible = keyframes`
   0% {
-    transform: translateX(90%);
+    opacity: 0;
+    transform: translateX(200px);
   }
   100% {
+    opacity: 1;
     transform:  translateX(0);
   }
 `
@@ -48,6 +50,7 @@ export const Container = styled.form`
     margin: 0 auto;
     background: none;
     box-shadow: none;
+    animation: none;
   }
 
   span {

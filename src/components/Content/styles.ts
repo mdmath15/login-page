@@ -2,9 +2,11 @@ import styled, { keyframes } from 'styled-components'
 
 const visible = keyframes`
   0% {
-    transform: translateX(-90%);
+    opacity: 0;
+    transform: translateX(-200px);
   }
   100% {
+    opacity: 1;
     transform:  translateX(0);
   }
 `

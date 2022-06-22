@@ -1,7 +1,19 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { AppColors } from '../../styles/global'
 
+const visible = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(20%);
+  }
+  100% {
+    opacity: 1;
+    transform:  translateX(0);
+  }
+`
+
 export const Container = styled.form`
+  animation: ${visible} 500ms ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,6 +38,7 @@ export const Container = styled.form`
     margin: 0 auto;
     min-height: 620px;
     box-shadow: none;
+    animation: none;
 
     button {
       margin-top: 1rem;
