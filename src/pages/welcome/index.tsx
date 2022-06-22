@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Content } from '../../components/Content'
 import { WelcomeForm } from '../../components/WelcomeForm'
 import {Layout} from '../../components/Layout'
-import { tokenVerifier } from '../../utils/authenticator'
+import { Authentication } from '../../utils/authenticator'
 import useMedia from '../../hooks/useMedia'
 
 interface User {
@@ -31,7 +31,7 @@ function Welcome() {
     }
 
     if (user && token) {
-      const isValid = tokenVerifier(token)
+      const isValid = Authentication.tokenVerifier(token)
 
       if (isValid?.id !== user.id) {
         router.push('/')

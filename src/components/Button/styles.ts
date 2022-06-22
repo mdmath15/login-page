@@ -26,7 +26,7 @@ export const Container = styled.button<ButtonProps>`
   }
 
   @media (max-width: 900px) {
-    color: ${(props) => props.color};
+    color:${AppColors.brown};
     background: ${AppColors.white};
     margin: 0 auto;
   }

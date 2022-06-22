@@ -34,6 +34,7 @@ export function Input({
         name={name}
         placeholder={placeholder}
         required={required}
+        autoComplete='off'
       />
     </S.Container>
   )

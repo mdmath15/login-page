@@ -6,7 +6,7 @@ import { Layout } from '../components/Layout'
 import { LoginForm } from '../components/LoginForm'
 import { useForm } from '../hooks/useForm'
 import useMedia from '../hooks/useMedia'
-import { tokenGenerator, tokenVerifier } from '../utils/authenticator'
+import { Authentication} from '../utils/authenticator'
 
 function Home() {
   const [loading, setLoading] = useState<boolean>(false)
@@ -30,7 +30,7 @@ function Home() {
     }
 
     localStorage.setItem('user', JSON.stringify(user))
-    localStorage.setItem('token', tokenGenerator(user.id))
+    localStorage.setItem('token', Authentication.tokenGenerator(user.id))
     setTimeout(() => toast.success('Login realizado com sucesso'), 2000)
     setTimeout(() => router.push('/welcome'), 2000)
   }
@@ -40,7 +40,7 @@ function Home() {
     const token = localStorage.getItem('token')
 
     if (user && token) {
-      const isValid = tokenVerifier(token)
+      const isValid = Authentication.tokenVerifier(token)
 
       if (isValid?.id === user.id) {
         router.push('/welcome')
