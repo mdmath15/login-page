@@ -2,34 +2,26 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Content } from '../../components/Content'
 import { WelcomeForm } from '../../components/WelcomeForm'
-import {Layout} from '../../components/Layout'
+import { Layout } from '../../components/Layout'
 import { Authentication } from '../../utils/authenticator'
 import useMedia from '../../hooks/useMedia'
-
-interface User {
-  name: string
-  email: string
-}
+import { useUser } from '../../hooks/useUser'
 
 function Welcome() {
-  const [user, setUser] = useState<User>({} as User)
+  const { user, token } = useUser()
   const mobile = useMedia('(max-width: 900px)')
   const router = useRouter()
 
-   const handleLogout = (): void => {
-     localStorage.removeItem('user')
-     localStorage.removeItem('token')
-     router.push('/')
-   }
+  const handleLogout = (): void => {
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+    router.push('/')
+  }
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user') || '{}')
-    const token = localStorage.getItem('token')
-
     if (!token) {
       router.push('/')
     }
-
     if (user && token) {
       const isValid = Authentication.tokenVerifier(token)
 
@@ -37,9 +29,7 @@ function Welcome() {
         router.push('/')
       }
     }
-
-    setUser(user)
-  }, [router])
+  }, [router, user, token])
 
   return (
     <Layout title='GCB - Bem-vindo' description='Página de bem vindo'>
