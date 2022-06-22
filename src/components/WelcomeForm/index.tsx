@@ -1,5 +1,3 @@
-import { useRouter } from 'next/router'
-import useMedia from '../../hooks/useMedia'
 import { AppColors } from '../../styles/global'
 import { Button } from '../Button'
 import { Logo } from '../Logo'

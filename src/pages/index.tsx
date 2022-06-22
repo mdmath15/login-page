@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 import { FormEvent, useEffect, useState } from 'react'
 import { Content } from '../components/Content'
 import { Layout } from '../components/Layout'

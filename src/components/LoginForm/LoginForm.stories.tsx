@@ -47,7 +47,7 @@ FormDesktop.decorators = [
 export const FormMobile = Template.bind({})
 FormMobile.parameters = {
   viewport: {
-    defaultViewport: 'iphonex'
+    defaultViewport: 'iphonexr'
   }
 }
 

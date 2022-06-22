@@ -1,12 +1,16 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { WelcomeForm } from '.'
 
 export default {
   title: 'Forms/WelcomeForm',
   component: WelcomeForm,
   parameters: {
-    layout: 'fullscreen'
+    layout: 'fullscreen',
+    viewport: {
+      viewports: INITIAL_VIEWPORTS
+    }
   }
 } as ComponentMeta<typeof WelcomeForm>
 
@@ -36,3 +40,19 @@ Form.decorators = [
     )
   }
 ]
+
+export const MobileForm = Template.bind({})
+MobileForm.args = {
+  user: {
+    name: 'Matheus',
+    email: 'math@gmail.com'
+  },
+  mobile: true
+}
+
+MobileForm.parameters = {
+  viewport: {
+    defaultViewport: 'iphonex'
+  }
+}
+
