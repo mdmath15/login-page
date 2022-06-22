@@ -22,6 +22,7 @@ export const Container = styled.form`
     margin: 0 auto;
     background: none;
     justify-content: center;
+    box-shadow: none;
   }
 
   h1 {

@@ -1,4 +1,5 @@
 import { Story, ComponentMeta } from '@storybook/react'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { Logo, LogoProps } from '.'
 
 export default {
@@ -7,6 +8,12 @@ export default {
   argTypes: {
     position: { control: 'select', options: ['relative', 'initital'] },
     layout: { control: 'none' }
+  },
+  parameters: {
+    layout: 'fullscreen',
+    viewport: {
+      viewports: INITIAL_VIEWPORTS
+    }
   }
 } as ComponentMeta<typeof Logo>
 
@@ -26,4 +33,9 @@ Mobile.args = {
   alt: 'GCB Logo',
   height: 120,
   width: 420
+}
+Mobile.parameters = {
+  viewport: {
+    defaultViewport: 'iphonexr'
+  }
 }
