@@ -31,6 +31,18 @@ function Welcome() {
   //     }
   //   }
   // }, [user, token, router])
+  useEffect(() => {
+    if (!token) {
+      router.push('/')
+    }
+    if (user && token) {
+      const isValid = Authentication.tokenVerifier(token)
+
+      if (isValid?.id !== user.id) {
+        router.push('/')
+      }
+    }
+  }, [router, user, token])
 
   return (
     <Layout title='GCB - Bem-vindo' description='Página de bem vindo'>
