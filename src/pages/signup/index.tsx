@@ -8,10 +8,11 @@ import { useRouter } from 'next/router'
 import { IdGenerator } from '../../utils/id-generator'
 import { passwordValidator } from '../../utils/password-validator'
 import { toast } from 'react-toastify'
-
+import { useUser } from '../../hooks/useUser'
 
 function SingUp() {
   const [errors, setErrors] = useState<string[]>([])
+  const { users } = useUser()
   const { form, handleInputChange } = useForm({
     name: '',
     email: '',
@@ -23,8 +24,6 @@ function SingUp() {
 
   const handleSignUp = (e: FormEvent) => {
     e.preventDefault()
-
-    const users = JSON.parse(localStorage.getItem('users') || '[]')
 
     const user = {
       id: IdGenerator(),
@@ -48,7 +47,13 @@ function SingUp() {
   return (
     <Layout title='GCB - Cadastre-se' description='Página de cadastro'>
       <Content />
-      <SignUpForm errors={errors} mobile={mobile!} handleSignUp={handleSignUp} form={form} handleInputChange={handleInputChange} />
+      <SignUpForm
+        errors={errors}
+        mobile={mobile!}
+        handleSignUp={handleSignUp}
+        form={form}
+        handleInputChange={handleInputChange}
+      />
     </Layout>
   )
 }
