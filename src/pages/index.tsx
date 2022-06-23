@@ -6,13 +6,11 @@ import { Layout } from '../components/Layout'
 import { LoginForm } from '../components/LoginForm'
 import { useForm } from '../hooks/useForm'
 import useMedia from '../hooks/useMedia'
-import { Authentication } from '../utils/authenticator'
-import { useUser } from '../hooks/useUser'
+import { Authentication} from '../utils/authenticator'
 
 function Home() {
   const [loading, setLoading] = useState<boolean>(false)
   const { form, handleInputChange } = useForm({ password: '', email: '' })
-  const { user, users, token } = useUser()
   const mobile = useMedia('(max-width: 900px)')
   const router = useRouter()
 
@@ -20,6 +18,8 @@ function Home() {
     e.preventDefault()
     setLoading(true)
     setTimeout(() => setLoading(false), 2000)
+
+    const users = JSON.parse(localStorage.getItem('users') || '[]')
 
     const user = users.find(
       (user: any) => user.email === form.email && user.password === form.password
@@ -36,6 +36,9 @@ function Home() {
   }
 
   useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user')!)
+    const token = localStorage.getItem('token')
+
     if (user && token) {
       const isValid = Authentication.tokenVerifier(token)
 
@@ -43,7 +46,7 @@ function Home() {
         router.push('/welcome')
       }
     }
-  }, [user, token, router])
+  }, [router])
 
   return (
     <Layout title='GCB - Login' description='Página de login'>
