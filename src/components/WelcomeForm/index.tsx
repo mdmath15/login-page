@@ -28,7 +28,11 @@ export function WelcomeForm({ user, handleLogout, mobile }: WelcomeFormProps) {
           Abrir email
         </a>
       </Button>
-      <Button type='submit' bgColor={AppColors.brown} color={AppColors.begeEscuro} logout={handleLogout}>
+      <Button
+        type='submit'
+        bgColor={AppColors.brown}
+        color={AppColors.begeEscuro}
+        logout={handleLogout}>
         Logout
       </Button>
     </S.Container>
